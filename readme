@@ -1,0 +1,30 @@
+The theory part:
+Pricing inflation linked bond is similar like pricing regular bond with extra inflation adjustment. The formulas for pricing inflation linked bond are as follow:
+Bond Price=〖RefCPI〗_maturityDay/〖RefCPI〗_issuedDay ×PV(Par Value)+∑▒〖[PV((coupon rate)/100×day/year)×Par Value)〗×RefCPI/〖RefCPI〗_issuedDay   ]
+〖RefCPI〗_j=〖CPI〗_j+(t-1)/D×(〖CPI〗_(j+1)-〖CPI〗_j)
+〖Index Ratio〗_j=〖RefCPI〗_j/〖RefCPI〗_(issuedDay  ) 
+
+For each coupon payment and principal payment, the total amount should multiple index ratio which base on CPI on payment day and CPI on issue day. Beside the adjustment of index ratio, the inflation index bond is same as regular bond.  
+The code part:
+The inputs should include: 
+	Settlement days
+	National 
+	Pricing date
+	Issue date
+	Maturity date
+	Next payment date
+	Coupon rate
+	CPI growth rate
+	Payment frequency 
+	Zero coupon bond yield curve
+	CPI historical data 
+Code flow:
+	Construct zero coupon bond yield curve or use existing one
+	Calculate refCPI for each payment day
+	Calculate CPI adjusted present value of accrued interest 
+	Calculate CPI adjusted sum of present value of coupon payments without accrued interest
+	Calculate CPI adjusted present value of principal
+	Add 4 and 5 to calculate clean price
+	Output clean price and accrued interest
+
+The basic theory is following the paper “pricing methodology for inflation linked bond and inflation linked buy/sell-backs” and other reference are “calculation examples for inflation-linked bonds”, “calculation convention for inflation linked bond” 
