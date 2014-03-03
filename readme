@@ -28,3 +28,6 @@ Code flow:
 	Output clean price and accrued interest
 
 The basic theory is following the paper “pricing methodology for inflation linked bond and inflation linked buy/sell-backs” and other reference are “calculation examples for inflation-linked bonds”, “calculation convention for inflation linked bond” 
+
+
+In the quantlib, it uses bootstrap to forecast the cpi index.
